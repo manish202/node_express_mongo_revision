@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>websocket revision</h1>
+    <button type="button" id="sendbtn">sendbtn</button>
+    <button type="button" id="toggleButton">toggleButton</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    const sendbtn = document.getElementById("sendbtn");
+    const toggleButton = document.getElementById("toggleButton");
+    const socket = io();
+    sendbtn.onclick = (e) => {
+        socket.emit('message2', 'hello from client');
+    }
+    socket.on('message2', (msg) => console.log(msg));
+    toggleButton.onclick = (e) => {
+        socket.connected ? socket.disconnect() : socket.connect();
+    }
+    </script>
+</body>
+</html>

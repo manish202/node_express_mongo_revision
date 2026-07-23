@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <%- include('partials/headtag') -%>
+</head>
+<body>
+    <div class="container my-3">
+        <div class="row shadow rounded p-3 text-bg-light">
+            <div class="col-md-6"><h2>Edit Contact</h2></div>
+            <div class="col-md-6 text-end">
+                <a href="/" class="btn btn-lg btn-dark">Go Home</a>
+            </div>
+        </div>
+        <div class="row my-3 rounded text-bg-light">
+            <div class="col-md-8 py-2 mx-auto">
+                <form action="/edit-contact/<%= contact.id %>" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="fname" placeholder="First Name" value="<%= contact.fname %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname" placeholder="Last Name" value="<%= contact.lname %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="hello@mail.com" value="<%= contact.email %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="number" class="form-control" name="phone" placeholder="Phone" value="<%= contact.phone %>">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control" name="address" placeholder="Address" rows="3"><%= contact.address %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" value="Submit" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

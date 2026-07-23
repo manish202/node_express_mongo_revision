@@ -1,0 +1,28 @@
+{
+  "name": "practical",
+  "version": "1.0.0",
+  "description": "doing a revision",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --env-file=.env index.js -e js,hbs,ejs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "connect-mongo": "^6.0.0",
+    "ejs": "^6.0.1",
+    "express": "^4.22.2",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.8.0",
+    "mongoose-paginate-v2": "^1.9.5",
+    "multer": "^2.2.0",
+    "mysql2": "^3.23.1",
+    "sequelize": "^6.37.8",
+    "socket.io": "^4.8.3"
+  }
+}

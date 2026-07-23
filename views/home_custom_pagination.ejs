@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <%- include('partials/headtag') -%>
+</head>
+<body>
+    <div class="container my-3">
+        <div class="row shadow rounded p-3 text-bg-light">
+            <div class="col-md-6"><h2>All Contacts</h2></div>
+            <div class="col-md-6 text-end">
+                <a href="/add-contact" class="btn btn-lg btn-dark">Add New</a>
+            </div>
+        </div>
+        <div class="row my-2">
+            <table class="table table-hover table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(contacts.length > 0){ %>
+                        <% contacts.forEach((contact) => { %>
+                            <tr>
+                                <td><%= contact.id %></td>
+                                <td><%= contact.fname %></td>
+                                <td><%= contact.lname %></td>
+                                <td><%= contact.email %></td>
+                                <td><%= contact.phone %></td>
+                                <td>
+                                    <a href="/view-contact/<%= contact.id %>" class="btn btn-primary">view</a>
+                                    <a href="/edit-contact/<%= contact.id %>" class="btn btn-warning">edit</a>
+                                    <a href="/delete-contact/<%= contact.id %>" class="btn btn-danger">delete</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    <% }else{ %>
+                        <tr>
+                            <td colspan="6">No Records Found!</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+                <% if(showPagination){ %>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center pt-3">
+                                        <% if(showPrevBtn){ %>
+                                            <li class="page-item"><a class="page-link" href="/?page=<%= (page-1) %>&limit=<%= limit %>">Previous</a></li>
+                                        <% } %>
+                                        <% for(let i=1;i<=totalPages;i++){ %>
+                                            <li class="page-item <%= i == page ? 'active':'' %>"><a class="page-link" href="/?page=<%= i %>&limit=<%= limit %>"><%= i %></a></li>
+                                        <% } %>
+                                        <% if(showNextBtn){ %>
+                                            <li class="page-item"><a class="page-link" href="/?page=<%= (page+1) %>&limit=<%= limit %>">Next</a></li>
+                                        <% } %>
+                                    </ul>
+                                </nav>
+                            </td>
+                        </tr>
+                    </tfoot>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

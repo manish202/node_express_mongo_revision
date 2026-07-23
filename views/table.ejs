@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css" />
+    <style>
+        .container{
+            width: 80%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table id="myTable" class="display">
+        <thead>
+            
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+    <script>
+        $(function(){
+            $('#myTable').DataTable({
+                ajax: {
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                    dataSrc: ''
+                },
+                columns: [
+                    {data:'id'},
+                    {data:'title'},
+                    {data:'body'},
+                ]
+            } );
+        });
+    </script>
+</body>
+</html>

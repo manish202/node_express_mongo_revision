@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <%- include('partials/headtag') -%>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row py-5 px-3 text-center my-5 shadow rounded text-bg-light">
+            <div class="col-md-8 mx-auto">
+                <h2>Error Code: <%= errorCode %></h2>
+                <h2>Error Message: <%= errorMessage %></h2>
+                <a href="/" class="btn btn-lg btn-dark">Go Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
